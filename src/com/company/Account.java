@@ -38,18 +38,17 @@ public class Account {
     }
 
     public int debit (int amount) {
-        return amount + balance;
+        balance += amount;
+        return balance;
 
         }
 
-        public int transferTo (int amount, String account) {
+        public int transferTo (int amount, Account transferTo) {
             if (amount <= balance)
-          return  transferTo(amount, Account);
+           transferTo.credit(amount);
+            debit(amount);
 
-        else {
-        System.out.println("Amount exceeded balance");
-    }
-        return balance;
+        return amount;
         }
 
 }
